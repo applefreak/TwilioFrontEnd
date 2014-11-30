@@ -1,5 +1,11 @@
 @import "compass"; 
 
 .container {
-	// margin: 100px;
+	.button-group {
+		margin-bottom: 15px;
+	}
+
+	#resetButton {
+		margin-left: 10px;
+	}
 }
