@@ -1,9 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Hello!</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
+
+	<title>Twilio Front End</title>
+
 </head>
+
 <body>
-	<h1>Hola!!</h1>
+	<div class="container">
+		<h1 class="row">Twilio Front End!!</h1>
+
+		<div class="row">
+			<div class="form-group">
+				<label for="numberToSend">Phone Number</label>
+				<input type="phone" class="form-control" id="numberToSend" placeholder="Enter Number! ie 886123123123">
+			</div>
+
+			<div class="form-group">
+			<label for="message">Message</label>
+				<textarea class="form-control" rows="3" id="message"></textarea>
+			</div>
+
+			<div>
+				<button type="button" class="btn btn-primary">Send!</button>
+				<button type="button" class="btn btn-danger">Reset</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- JS -->
+	<script src="jquery/dist/jquery.min.js"></script>
+	<script src="bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
 </body>
 </html>
