@@ -12,12 +12,10 @@ app.get('/', function(req, res){
 
 app.post('/api/send',function(req,res){
 	var toNumber = req.body.to;
-	var fromNumber = req.body.from;
+	var fromNumber = '{{YOUR FROM NUMBER}}';
 	var toMessage = req.body.msg;
-	var sid = eq.body.to;
-	var tkn = req.body.msg;
-	res.send('V1 :' + query1 + 'V2: ' + query2);
-	console.log('V1 :' + query1 + 'V2: ' + query2);
+	var sid = '{{YOUR SID}}';
+	var tkn = '{{YOUR TOKEN}}';
 	var twilio = require('twilio')(sid, tkn);
 
 	twilio.messages.create({
@@ -25,7 +23,21 @@ app.post('/api/send',function(req,res){
 		to: "+" + toNumber,
 		from: "+" + fromNumber
 	}, function(err, message) {
-		process.stdout.write(message.sid);
+		if (err) {
+			console.log(err);
+			var rtn = {
+				error: true,
+				msg: err.message
+			};
+			res.send(rtn);
+		} else {
+			console.log(message);
+			var rtn = {
+				error: false,
+				msg: message.status
+			};
+			res.send(rtn);
+		}
 	});
 });
 
